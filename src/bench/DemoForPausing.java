@@ -7,6 +7,12 @@ public class DemoForPausing implements IBenchmark {
     }
 
     @Override
+    public void warmup() {
+
+    }
+
+
+    @Override
     public void run(Object... params) {
         System.out.println("Doing stuff");
         try {

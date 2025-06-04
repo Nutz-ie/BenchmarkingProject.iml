@@ -18,6 +18,11 @@ public class BubbleSortBenchmark implements IBenchmark {
     }
 
     @Override
+    public void warmup() {
+
+    }
+
+    @Override
     public void run() {
         run(array);  //use internal array
     }

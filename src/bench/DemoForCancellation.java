@@ -8,6 +8,10 @@ public class DemoForCancellation implements IBenchmark {
         System.out.println("Initialized");
         running = true;
     }
+    @Override
+    public void warmup() {
+
+    }
 
     @Override
     public void run(Object... params) {
