@@ -11,13 +11,13 @@ import java.io.IOException;
 
 public class CPUDigitsOfPi implements IBenchmark {
 
-    private int digits = 1000; // Default precision
+    private int digits = 1000;
     private volatile boolean canceled = false;
 
     @Override
     public void warmup() {
         if (canceled) return;
-        computePi(digits); // You can switch to computePiChudnovsky(digits) here for Chudnovsky warmup
+        computePi(digits); //can switch to computePiChudnovsky(digits) here for Chudnovsky warmup
     }
 
     @Override
@@ -157,7 +157,7 @@ public class CPUDigitsOfPi implements IBenchmark {
 
     @Override
     public void clean() {
-        // No resources to clean
+
     }
 
     @Override

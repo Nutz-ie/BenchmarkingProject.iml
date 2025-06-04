@@ -29,8 +29,7 @@ public class CPUFixedVsFloatingPoint implements IBenchmark {
     private void runFixed() {
         long sum = 0;
         for (int i = 0; i < size; i++) {
-            // Optimized: sum += i / 256; // Classic division
-            sum += i >> 8; // Bit-shift (optimized for 256)
+            sum += i >> 8;
         }
         System.out.println("Sum (fixed): " + sum);
     }
@@ -45,7 +44,7 @@ public class CPUFixedVsFloatingPoint implements IBenchmark {
 
     @Override
     public void warmup() {
-        // Simple warmup for both
+        //simple warmup for both
         for (int i = 0; i < 10_000; i++) {
             int dummy = i >> 8;
             float dummy2 = i / 256.0f;

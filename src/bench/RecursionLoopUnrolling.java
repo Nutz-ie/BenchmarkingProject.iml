@@ -1,7 +1,7 @@
 package bench;
 
 public class RecursionLoopUnrolling implements IBenchmark {
-    private int size = 10000; // Default workload
+    private int size = 10000;
     private volatile boolean canceled = false;
     private long lastPrime = 0;
     private int totalCalls = 0;
@@ -36,25 +36,24 @@ public class RecursionLoopUnrolling implements IBenchmark {
                 sum = recursive(1, size, 0);
                 System.out.println("Finished. Sum of primes: " + sum);
             } catch (StackOverflowError e) {
-                // Handled inside recursive
+                //handled inside recursive
             }
         } else {
             try {
                 sum = recursiveUnrolled(1, unrollLevel, size, 0);
                 System.out.println("Finished. Sum of primes: " + sum);
             } catch (StackOverflowError e) {
-                // Handled inside recursiveUnrolled
+                //handled inside recursiveUnrolled
             }
         }
         long elapsedMillis = (System.nanoTime() - startTime) / 1_000_000;
         System.out.printf("Finished in %.4f Milli\n", (double) elapsedMillis);
 
-        // Compute and print score
         double score = computeScore(totalCalls, lastPrime, elapsedMillis);
-        System.out.printf("Score: %.2f)\n", score);
+        System.out.printf("Score: %.2f\n", score);
     }
 
-    // Recursion without unrolling
+    //recursion without unrolling
     private long recursive(long start, long size, int counter) {
         if (canceled) return 0;
         try {

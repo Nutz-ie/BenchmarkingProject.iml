@@ -71,7 +71,7 @@ public class CPUFixedPoint implements IBenchmark {
             if (bi >= 0 && bi < size)
                 c[i] = a[bi];
         }
-        // Swap arrays
+        //swap arrays
         for (int i = 0; i < size; i++) {
             int tmp = a[i];
             a[i] = b[i];
@@ -86,7 +86,6 @@ public class CPUFixedPoint implements IBenchmark {
     @Override
     public void cancel() {}
 
-    // MOPS calculation (see below for details)
     public double getMOPS(long elapsedMillis, int opCount) {
         return opCount / (elapsedMillis / 1000.0) / 1_000_000;
     }
